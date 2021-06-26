@@ -1,0 +1,21 @@
+.friend {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 0 5px;
+	color: #fff;
+}
+
+.img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.friend a {
+	color: inherit;
+	text-decoration: none;
+}
