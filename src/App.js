@@ -10,7 +10,6 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import { BrowserRouter } from 'react-router-dom';
-import { addPost } from './redux/state';
 
 
 
@@ -28,7 +27,10 @@ const App = (props) => {
 					<Route exact path="/music" component={Music}/>
 					<Route exact path="/settings" component={Settings}/>*/}
 
-					<Route exact path="/dialogs" render={ () => <Dialogs state={props.state.dialogsPage}/>}/>
+					<Route exact path="/dialogs" render={ () => <Dialogs 
+						dialogsPage={props.state.dialogsPage}
+						addMessage={props.addMessage}
+						updateNewMessage={props.updateNewMessage}/>}/>
 					<Route exact path="/profile" 
 						render={() => <Profile 
 							profilePage={props.state.profilePage} 
