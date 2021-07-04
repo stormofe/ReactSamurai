@@ -27,10 +27,9 @@ const App = (props) => {
 					<Route exact path="/music" component={Music}/>
 					<Route exact path="/settings" component={Settings}/>*/}
 
-					<Route exact path="/dialogs" render={ () => <DialogsContainer store={props.store} />}/>
+					<Route exact path="/dialogs" render={ () => <DialogsContainer/>}/>
 					<Route exact path="/profile" 
-						render={() => <Profile 
-							store={props.store}/>}/>
+						render={() => <Profile />}/>
 					<Route exact path ="/news" render={() => <News/>}/>
 					<Route exact path="/music" render={() => <Music/>}/>
 					<Route exact path="/settings" render={() => <Settings/>}/>
