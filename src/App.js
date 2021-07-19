@@ -28,7 +28,7 @@ const App = (props) => {
 					<Route exact path="/settings" component={Settings}/>*/}
 
 					<Route exact path="/dialogs" render={ () => <DialogsContainer/>}/>
-					<Route exact path="/profile" 
+					<Route exact path="/profile/:userId?" 
 						render={() => <ProfileContainer />}/>
 					<Route exact path ="/news" render={() => <News/>}/>
 					<Route exact path="/music" render={() => <Music/>}/>

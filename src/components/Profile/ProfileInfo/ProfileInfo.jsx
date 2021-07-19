@@ -22,7 +22,7 @@ const ProfileInfo = (props) => {
 						<li>{props.profile.contacts.instagram}</li>
 						<li>{props.profile.contacts.github}</li>
 					</ul>
-					<a href="">asdetgdhdh</a>
+					<a href="">Link</a>
 				</div>
 			</div>
 		</div>
