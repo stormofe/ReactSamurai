@@ -10,6 +10,7 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Login/Login';
 
 
 
@@ -20,12 +21,6 @@ const App = (props) => {
 				<HeaderContainer/>
 				<Navbar/>
 				<div className="app-wrapper-content">
-					
-					{/*<Route exact path="/dialogs" component={Dialogs}/>
-					<Route exact path="/profile" component={Profile}/>
-					<Route exact path ="/news" component={News}/>
-					<Route exact path="/music" component={Music}/>
-					<Route exact path="/settings" component={Settings}/>*/}
 
 					<Route exact path="/dialogs" render={ () => <DialogsContainer/>}/>
 					<Route exact path="/profile/:userId?" 
@@ -34,6 +29,7 @@ const App = (props) => {
 					<Route exact path="/music" render={() => <Music/>}/>
 					<Route exact path="/settings" render={() => <Settings/>}/>
 					<Route exact path="/users" render={() => <UsersContainer/>}/>
+					<Route exact path="/login" render={() => <Login/>}/>
 
 				</div>
 				
