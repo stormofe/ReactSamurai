@@ -17,7 +17,7 @@ const ProfileInfo = (props) => {
 				<div className={n.descr}>
 					<h1>{props.profile.fullName}</h1>
 					<p>{props.profile.aboutMe}</p>
-					<ProfileStatus status={"Hey Ho!"} />
+					<ProfileStatus status={props.status} updateStatus={props.updateStatus} />
 					<p>Ищу работу: {props.profile.lookingForAJobDescription}</p>
 
 					<ul>
