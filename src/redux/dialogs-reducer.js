@@ -14,25 +14,24 @@ let initialState = {
 		{ id: 2, message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, id.' },
 		{ id: 3, message: 'Doloremque quas accusantium aperiam, nobis, alias nam similique porro ea, perspiciatis neque minus cupiditate mollitia odio! Mollitia, voluptate! Iusto eius consequuntur consectetur.' },
 	], 
-	newMessageText: ''
 };
 
 const dialogsReducer = (state = initialState, action) => {
+	//debugger
 	switch(action.type) {
 		case UPDATE_NEW_MESSAGE: 
 			return {
 				...state,
-				newMessageText: action.newMess
+				newMessageText: action.newMessage
 			};
 			
 		case ADD_MESSAGE: 
 			let newMessage = {
 			id: 4,
-			message: state.newMessageText,
+			message: action.newMessage,
 			};
 			return {
 				...state,
-				newMessageText: '',
 				messages: [...state.messages, newMessage]
 			};
 	
@@ -41,7 +40,7 @@ const dialogsReducer = (state = initialState, action) => {
 	}
 }
 
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
+export const addMessageActionCreator = (newMessage) => ({ type: ADD_MESSAGE, newMessage });
 
 export const updateNewMessageActionCreator = (text) =>
 	({ type: UPDATE_NEW_MESSAGE, newMess: text });
