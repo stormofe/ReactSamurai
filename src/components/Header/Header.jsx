@@ -6,7 +6,8 @@ const Header = (props) => {
 		<img className={n.logo} src='https://image.freepik.com/free-psd/text-effect-e-sports_23-2148924022.jpg' alt="dgvd"></img>
 
 		<div className={n.loginBlock}>
-			{props.isAuth ? props.login
+			{props.isAuth
+				? <div>{props.login} - <button onClick={props.logout}>Log out</button></div>
 				: <NavLink to={'/login'}>Login</NavLink>}
 		</div>
 	</header>
