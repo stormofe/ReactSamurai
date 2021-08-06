@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Preloader from '../../common/Preloader/Preloader';
 import n from './ProfileInfo.module.css';
 import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 const ProfileInfo = (props) => {
 	if (!props.profile) {
@@ -17,7 +18,7 @@ const ProfileInfo = (props) => {
 				<div className={n.descr}>
 					<h1>{props.profile.fullName}</h1>
 					<p>{props.profile.aboutMe}</p>
-					<ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+					<ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
 					<p>Ищу работу: {props.profile.lookingForAJobDescription}</p>
 
 					<ul>
