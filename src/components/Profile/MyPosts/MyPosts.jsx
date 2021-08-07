@@ -7,7 +7,7 @@ import Post from './Post/Post';
 
 
 
-const MyPosts = (props) => {
+const MyPosts = props => {
 
 	let post = props.posts.map(p => <Post message={p.message} like={p.like} />)
 
@@ -19,11 +19,11 @@ const MyPosts = (props) => {
 		<div>
 			<h2>Posts</h2>
 			<AddNewPostReduxForm onSubmit={onAddPost} />
-
 			{post}
 		</div>
 	)
-}
+
+};
 
 const maxLength10 = maxLengthCreator(10);
 
