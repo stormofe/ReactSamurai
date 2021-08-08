@@ -10,9 +10,9 @@ import n from '../common/FormsControls/FormsControls.module.css';
 
 const maxLength20 = maxLengthCreator(20);
 
-const LoginForm = (props) => {
+const LoginForm = ({ handleSubmit, error }) => {
 	return (
-		<form onSubmit={props.handleSubmit}>
+		<form onSubmit={handleSubmit}>
 			<div>
 				<Field placeholder={"Email"} name={"email"} component={Input} validate={[required, maxLength20]} />
 			</div>
@@ -22,7 +22,7 @@ const LoginForm = (props) => {
 			<div>
 				<Field type={"Checkbox"} name={"rememberMe"} component={Input} /> Remember me
 			</div>
-			{props.error && <div className={n.formSummaryError}>{props.error}</div>}
+			{error && <div className={n.formSummaryError}>{error}</div>}
 			<div>
 				<button>Login</button>
 			</div>
