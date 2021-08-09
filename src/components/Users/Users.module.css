@@ -4,17 +4,3 @@
 	object-fit: cover;
 	border-radius: 50%;
 }
-
-.selectedPage {
-	font-weight: 800;
-}
-
-.pagination {
-	display: flex;
-	max-width: 100%;
-	flex-wrap: wrap;
-}
-
-.pagination span {
-	margin: 0px 5px 0px 0px;
-}

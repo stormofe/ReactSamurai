@@ -1,11 +1,11 @@
 import n from "./FormsControls.module.css"
 
-const FormControl = ({input, meta, ...props}) => {
-	const hasError = meta.touched && meta.error;
+const FormControl = ({input, meta: {touched, error}, children}) => {
+	const hasError = touched && error;
 	return (
 		<div className={n.formControl + " " + (hasError ? n.error : '')}>
-			{props.children}
-			{hasError && <span>{meta.error}</span>}
+			{children}
+			{hasError && <span>{error}</span>}
 		</div>
 	)
 }
