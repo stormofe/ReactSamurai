@@ -15,7 +15,9 @@ import { connect } from 'react-redux';
 import {initializeApp} from './redux/app-reducer'
 import Preloader from './components/common/Preloader/Preloader';
 import { compose } from 'redux';
-
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import store from './redux/redux-store';
 
 
 class App extends React.Component {
@@ -54,6 +56,20 @@ const mapStateToProps = (state) => ({
 	initialized: state.app.initialized
 })
 
-export default compose (
+let AppContainer = compose (
 	withRouter,
 	connect(mapStateToProps, {initializeApp})) (App);
+
+let MainApp = (props) => {
+	return (
+		<React.StrictMode>
+			<BrowserRouter>
+				<Provider store={store}>
+					<AppContainer />
+				</Provider>
+			</BrowserRouter>
+		</React.StrictMode>
+	)
+}
+
+export default MainApp;
