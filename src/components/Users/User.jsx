@@ -4,7 +4,7 @@ import userPhoto from '../../assets/images/user.png'
 import { NavLink } from 'react-router-dom';
 
 
-let Users = ({ user, followingInProgress, unfollow, follow }) => {
+let User = ({ user, followingInProgress, unfollow, follow }) => {
 
 	return (
 		<div>
@@ -43,4 +43,4 @@ let Users = ({ user, followingInProgress, unfollow, follow }) => {
 	)
 }
 
-export default Users;
+export default User;
