@@ -9,7 +9,7 @@ import Post from './Post/Post';
 
 const MyPosts = props => {
 
-	let post = props.posts.map(p => <Post message={p.message} like={p.like} />)
+	let post = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like} />)
 
 	let onAddPost = (values) => {
 		props.addPost(values.newPostText);

@@ -6,7 +6,7 @@ import userPhoto from './../../../assets/images/user.png'
 import { useState } from 'react';
 import ProfileDataForm from './ProfileDataForm';
 
-const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
+const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, saveProfile }) => {
 
 	let [editMode, setEditMode] = useState(false);
 
@@ -19,11 +19,15 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
 		}
 
 	}
+	const onSubmit = (formData) => {
+		saveProfile(formData).then(() => {
+			setEditMode(false);
+		})
+	}
 	return (
 		<div>
 			{/*<div><img className={n.img} src="https://images.unsplash.com/photo-1586717799252-bd134ad00e26?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" alt=""></img></div>*/}
 			<div>
-
 				<img className={n.photo} src={profile.photos.large || userPhoto}></img>
 
 				{isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
@@ -31,7 +35,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
 				<ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
 
 				{editMode
-					? <ProfileDataForm profile={profile} />
+					? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit} />
 					: <ProfileData profile={profile} isOwner={isOwner} goToEditMode={() => { setEditMode(true) }} />}
 
 			</div>
