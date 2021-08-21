@@ -1,11 +1,14 @@
 import React from 'react';
-import n from './Users.module.css';
 import Pagination from '../common/Pagination/Pagination';
 import User from './User';
 import Preloader from '../common/Preloader/Preloader';
 
 
-let Users = ({ currentPage, totalUsersCount, pageSize, onPageChanged, ...props }) => {
+const Users = ({ currentPage, totalUsersCount, pageSize, onPageChanged, ...props }) => {
+	//debugger
+	if (!props.users) {
+		return <Preloader />
+	}
 
 	return (
 		<div>
@@ -22,6 +25,10 @@ let Users = ({ currentPage, totalUsersCount, pageSize, onPageChanged, ...props }
 		</div >
 	)
 
+	//return <Preloader />
+
+
 }
+
 
 export default Users;

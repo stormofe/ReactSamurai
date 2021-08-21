@@ -25,12 +25,16 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
 		})
 	}
 	return (
-		<div>
+		<div className={n.wrapper}>
 			{/*<div><img className={n.img} src="https://images.unsplash.com/photo-1586717799252-bd134ad00e26?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" alt=""></img></div>*/}
-			<div>
-				<img className={n.photo} src={profile.photos.large || userPhoto}></img>
+			<div >
+				<div className={n.photoBox}>
+					<img className={n.photo} src={profile.photos.large || userPhoto}></img>
+					<div className={n.downloadFile}>
+						{isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
+					</div>
+				</div>
 
-				{isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
 
 				<ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
 

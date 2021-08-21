@@ -1,18 +1,31 @@
-.header {
+header {
 	grid-area: h;
-	background-color: blue;
+	max-width: 100vw;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
+	background: linear-gradient(180deg, #9C00C4 12.16%, rgba(196, 196, 196, 0) 148.65%);
+	padding: 0 20px;
 }
 
 .logo {
-	width: 60px;
+	width: 150px;
 	height: 60px;
-	object-fit: cover;
+	object-fit: contain;
 }
 
 .loginBlock {
-	float: right;
+	display: flex;
+	flex-direction: column;
+	color: white;
 }
 
-.loginBlock a {
-	color: white;
+.loginBlock button {
+	padding: 10px 0px 0px 0px;
+	background: none;
+	color: whitesmoke;
+	outline: none;
+	border: none;
+	cursor: pointer;
 }

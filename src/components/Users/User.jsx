@@ -1,5 +1,5 @@
 import React from 'react';
-import n from './Users.module.css';
+import n from './User.module.css';
 import userPhoto from '../../assets/images/user.png'
 import { NavLink } from 'react-router-dom';
 
@@ -8,10 +8,10 @@ let User = ({ user, followingInProgress, unfollow, follow }) => {
 
 	return (
 		<div>
-			<span>
+			<div className={n.user}>
 				<div>
 					<NavLink to={'/profile/' + user.id}>
-						<img src={user.photos.small != null ? user.photos.small : userPhoto} className={n.userPhoto} />
+						<img className={n.userPhotoSmall} src={user.photos.small != null ? user.photos.small : userPhoto} />
 					</NavLink>
 				</div>
 				<div>
@@ -27,8 +27,8 @@ let User = ({ user, followingInProgress, unfollow, follow }) => {
 						}}>Follow</button>}
 
 				</div>
-			</span>
-			<span>
+			</div>
+			<div>
 				<span>
 					<div>{user.name}</div>
 					<div>{user.status}</div>
@@ -37,7 +37,7 @@ let User = ({ user, followingInProgress, unfollow, follow }) => {
 					<div>{'u.location.country'}</div>
 					<div>{'u.location.city'}</div>
 				</span>
-			</span>
+			</div>
 
 		</div >
 	)
