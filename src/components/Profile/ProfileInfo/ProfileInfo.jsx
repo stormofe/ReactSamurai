@@ -5,6 +5,7 @@ import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import userPhoto from './../../../assets/images/user.png'
 import { useState } from 'react';
 import ProfileDataForm from './ProfileDataForm';
+import { Field } from 'redux-form';
 
 const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, saveProfile }) => {
 
@@ -25,18 +26,19 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
 		})
 	}
 	return (
-		<div className={n.wrapper}>
+		<div >
 			{/*<div><img className={n.img} src="https://images.unsplash.com/photo-1586717799252-bd134ad00e26?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" alt=""></img></div>*/}
-			<div >
+			<div className={n.wrapper}>
 				<div className={n.photoBox}>
 					<img className={n.photo} src={profile.photos.large || userPhoto}></img>
 					<div className={n.downloadFile}>
 						{isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
 					</div>
+					<ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+
 				</div>
 
 
-				<ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
 
 				{editMode
 					? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit} />
@@ -53,15 +55,15 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
 		<div className={n.descr}>
 
 			<h1>{profile.fullName}</h1>
-			<p>{profile.aboutMe}</p>
+			<p className={n.aboutMe}>{profile.aboutMe}</p>
 
-			{isOwner && <div><button onClick={goToEditMode}>Edit</button></div>}
+			{isOwner && <div><button className={n.replace} onClick={goToEditMode}>Replace</button></div>}
 
 			<p>Ищу работу: {profile.lookingForAJob ? "да" : "нет"}</p>
 			<p>{profile.lookingForAJob ? profile.lookingForAJobDescription : " "}</p>
 
 			<div>
-				<b>Contacts:</b> {Object.keys(profile.contacts).map(key => {
+				<b className={n.title}>Contacts:</b> {Object.keys(profile.contacts).map(key => {
 					return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]} />
 				})}
 			</div>
@@ -70,7 +72,7 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
 }
 
 const Contact = ({ contactTitle, contactValue }) => {
-	return <div><b>{contactTitle}</b>: {contactValue}</div>
+	return <div className={n.contacts}> <span>{contactTitle}</span>: <a target="_blank" href={contactValue} >{contactValue}</a></div>
 }
 
 export default ProfileInfo;

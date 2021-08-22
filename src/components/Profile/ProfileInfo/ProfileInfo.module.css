@@ -9,8 +9,8 @@
 }
 
 .photo {
-	max-width: 200px;
-	max-height: 200px;
+	max-width: 250px;
+	max-height: 250px;
 	box-shadow: 3px 3px 20px #999;
 	position: relative;
 	border: none;
@@ -21,6 +21,24 @@
 	max-height: 100%;
 	object-fit: cover;
 	z-index: 1;
+}
+
+.aboutMe {
+	font-style: italic;
+	white-space: normal;
+	overflow-wrap: break-word;
+}
+
+.title {
+	font-size: 20px;
+	color: #333;
+}
+
+.contacts span {
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 5px;
+	font-size: 12px;
 }
 
 .flex {
@@ -57,4 +75,34 @@
 	background-size: 30px;
 	opacity: 0.6;
 	cursor: pointer;
+}
+
+.descr {
+	padding: 0px 0px 0px 40px;
+}
+
+.descr h1 {
+	color: #333;
+	margin: 0px 0px;
+}
+
+.replace {
+	color: #333;
+	background-color: transparent;
+	border: 1px solid #333;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.replace:hover {
+	background-color: rgb(122, 6, 103);
+	color: #fff;
+}
+
+.status {
+	padding: 30px 0px;
+	font-style: italic;
+	max-width: 200px;
+	white-space: normal;
+	overflow-wrap: break-word;
 }
